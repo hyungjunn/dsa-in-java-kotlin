@@ -1,12 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.10" apply false
     id("java")
-}
-
-allprojects {
-    repositories {
-        mavenCentral()
-    }
 }
 
 group = "io.github.hyungjunn"
