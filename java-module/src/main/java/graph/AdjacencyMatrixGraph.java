@@ -148,6 +148,7 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
                 }
             }
         }
+        System.out.println();
     }
 
     private void resetVisited() {
@@ -204,11 +205,11 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
 
         System.out.println("깊이 우선 탐색 결과(재귀 기반): ");
         graph.depthFirstSearch(); // A B D G E C F
-        System.out.println("깊이 우선 탐색 결과(스택 기반 v1): ");
+        System.out.println("깊이 우선 탐색 결과(반복 기반 v1): ");
         graph.iterativeDFSV1(); // A C E G F D B
-        System.out.println("깊이 우선 탐색 결과(스택 기반 v2): ");
+        System.out.println("깊이 우선 탐색 결과(반복 기반 v2): ");
         graph.iterativeDFSV2(); // A B D G E C F
-        System.out.println("깊이 우선 탐색 결과(스택+이터레이터 기반): ");
+        System.out.println("깊이 우선 탐색 결과(이터레이터 기반): ");
         graph.iterativeDFSWithIterator(); // A B D G E C F
         System.out.println("너비 우선 탐색 결과: ");
         graph.breadthFirstSearch(); // A B C D E F G
