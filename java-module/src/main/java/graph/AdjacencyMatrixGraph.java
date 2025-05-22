@@ -5,7 +5,9 @@ import stack.Stack;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class AdjacencyMatrixGraph<T> implements Graph<T> {
     private T[] vertices;
@@ -116,6 +118,7 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
                 s.pop();
             }
         }
+        System.out.println();
     }
 
     private Iterator<Integer> getAdjacencyIterator(int v) {
@@ -126,6 +129,25 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
             }
         }
         return adjacentVertices.iterator();
+    }
+
+    public void breadthFirstSearch() {
+        resetVisited();
+        Queue<Integer> queue = new LinkedList<>();
+        int start = 0;
+        visited[start] = true;
+        queue.offer(start);
+        System.out.print(vertices[start] + " ");
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            for (int w = 0; w < size; w++) {
+                if (!visited[w] && matrix[v][w] == 1) {
+                    visited[w] = true;
+                    queue.offer(w);
+                    System.out.print(vertices[w] + " ");
+                }
+            }
+        }
     }
 
     private void resetVisited() {
@@ -188,5 +210,7 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
         graph.iterativeDFSV2(); // A B D G E C F
         System.out.println("깊이 우선 탐색 결과(스택+이터레이터 기반): ");
         graph.iterativeDFSWithIterator(); // A B D G E C F
+        System.out.println("너비 우선 탐색 결과: ");
+        graph.breadthFirstSearch(); // A B C D E F G
     }
 }
