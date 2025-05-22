@@ -1,5 +1,6 @@
-public class ArrayStack<T> implements Stack<T> {
+package stack;
 
+public class ArrayStack<T> implements Stack<T> {
     private T[] arrayStack;
     private int top;
     private int capacity;
@@ -23,6 +24,7 @@ public class ArrayStack<T> implements Stack<T> {
         return top == capacity - 1;
     }
 
+    @SuppressWarnings("unchecked")
     private void resize() {
         int newCapacity = capacity * 2;
         T[] newArray = (T[]) new Object[newCapacity];
@@ -36,7 +38,7 @@ public class ArrayStack<T> implements Stack<T> {
     @Override
     public void pop() {
         if (isEmpty()) {
-            throw new IllegalStateException("Stack underflow: Cannot remove an element from an empty stack.");
+            throw new IllegalStateException("stack.Stack underflow: Cannot remove an element from an empty stack.");
         }
         top--;
     }
@@ -54,5 +56,13 @@ public class ArrayStack<T> implements Stack<T> {
     @Override
     public int size() {
         return top + 1;
+    }
+
+    @Override
+    public void print() {
+        for (int i = 0; i <= top; i++) {
+            System.out.print(arrayStack[i] + " ");
+        }
+        System.out.println();
     }
 }
