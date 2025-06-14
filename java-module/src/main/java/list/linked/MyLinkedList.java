@@ -1,6 +1,8 @@
 package list.linked;
 
-public class MyLinkedList<E> {
+import list.MyList;
+
+public class MyLinkedList<E> implements MyList<E> {
 
     private static class Node<E> {
         E item;
@@ -30,6 +32,7 @@ public class MyLinkedList<E> {
     private Node<E> first;
     private int size = 0;
 
+    @Override
     public void add(E e) {
         Node<E> node = new Node<>(e);
         if (first == null) {
@@ -49,6 +52,7 @@ public class MyLinkedList<E> {
         return current;
     }
 
+    @Override
     public void add(int index, E e) {
         Node<E> newNode = new Node<>(e);
         if (first == null) {
@@ -62,6 +66,7 @@ public class MyLinkedList<E> {
         size++;
     }
 
+    @Override
     public E remove(int index) {
         Node<E> removeNode = getNode(index);
         E removedItem = removeNode.item;
@@ -77,13 +82,15 @@ public class MyLinkedList<E> {
         return removedItem;
     }
 
-    public Object set(int index, E e) {
+    @Override
+    public E set(int index, E e) {
         Node<E> x = getNode(index);
-        Object oldItem = x.item;
+        E oldItem = x.item;
         x.item = e;
         return oldItem;
     }
 
+    @Override
     public E get(int index) {
         Node<E> node = getNode(index);
         return node.item;
@@ -97,6 +104,7 @@ public class MyLinkedList<E> {
         return current;
     }
 
+    @Override
     public int indexOf(E o) {
         int index = 0;
         Node<E> current = first;
@@ -110,6 +118,7 @@ public class MyLinkedList<E> {
         return -1;
     }
 
+    @Override
     public int size() {
         return size;
     }

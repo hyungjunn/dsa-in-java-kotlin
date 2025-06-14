@@ -1,8 +1,10 @@
 package list.array;
 
+import list.MyList;
+
 import java.util.Arrays;
 
-public class MyArrayList<E> {
+public class MyArrayList<E> implements MyList<E> {
 
     public static final int DEFAULT_CAPACITY = 5;
 
@@ -15,10 +17,12 @@ public class MyArrayList<E> {
         this.elementData = new Object[DEFAULT_CAPACITY];
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public void add(E e) {
         if (size == elementData.length) {
             grow();
@@ -26,7 +30,8 @@ public class MyArrayList<E> {
         elementData[size] = e;
         size++;
     }
-    
+
+    @Override
     public void add(int index, E e) {
         if (size == elementData.length) {
             grow();
@@ -42,6 +47,7 @@ public class MyArrayList<E> {
         }
     }
 
+    @Override
     public E remove(int index) {
         E oldValue = get(index);
         shiftLeftFrom(index);
@@ -62,17 +68,20 @@ public class MyArrayList<E> {
         elementData = Arrays.copyOf(elementData, newCapacity);
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public E get(int index) {
         return (E) elementData[index];
     }
 
+    @Override
     public E set(int index, E element) {
         E oldValue = get(index);
         elementData[index] = element;
         return oldValue;
     }
 
+    @Override
     public int indexOf(E o) {
         for (int i = 0; i < elementData.length; i++) {
             if (o.equals(elementData[i])) {
