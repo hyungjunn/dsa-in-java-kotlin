@@ -13,6 +13,7 @@ public class MyLinkedListMain {
         System.out.println("integer1 = " + integer1);
         System.out.println("integer2 = " + integer2);
         System.out.println("integer3 = " + integer3);
+        System.out.println(intList + "\n");
 
         MyLinkedList<String> stringList = new MyLinkedList<>();
         stringList.add("A");
@@ -24,5 +25,6 @@ public class MyLinkedListMain {
         System.out.println("string1 = " + string1);
         System.out.println("string2 = " + string2);
         System.out.println("string3 = " + string3);
+        System.out.println(stringList);
     }
 }

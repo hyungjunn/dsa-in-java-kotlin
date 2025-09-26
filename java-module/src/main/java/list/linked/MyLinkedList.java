@@ -125,9 +125,9 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public String toString() {
-        return "MyLinkedList{" +
-               "first=" + first +
-               ", size=" + size +
-               '}';
+        if (first == null) {
+            return "[]";
+        }
+        return first.toString();
     }
 }
